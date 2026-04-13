@@ -1,0 +1,354 @@
+---
+import { fetchProductos } from '../lib/fetchProductos'
+import { agruparPorNombre } from '../lib/productos'
+import type { Producto } from '../lib/types'
+
+const productos = await fetchProductos()
+
+const secciones = [
+  { id: 'cocina',      label: 'Repuestos de Cocina',      key: 'Cocina' },
+  { id: 'termotanque', label: 'Repuestos de Termotanque', key: 'Termotanque' },
+  { id: 'calenon',     label: 'Repuestos de Calefón',     key: 'Calefón' },
+  { id: 'termocuplas', label: 'Termocuplas',              key: 'Termocuplas' },
+]
+
+const porCategoria = (key: string) =>
+  agruparPorNombre(productos.filter((p: Producto) => p.categoria === key))
+
+export const prerender = false
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Catálogo El Gasificador</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 10pt;
+      color: #033059;
+      background: white;
+    }
+
+    /* ── Layout ── */
+    .page { max-width: 210mm; margin: 0 auto; padding: 0; }
+
+    /* ── Header ── */
+    .header {
+      background: #033059;
+      color: white;
+      padding: 20pt 24pt;
+      display: flex;
+      align-items: center;
+      gap: 16pt;
+    }
+    .header img { height: 36pt; width: auto; }
+    .header-label {
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #DAE1E7;
+      opacity: 0.8;
+      margin-bottom: 4pt;
+    }
+    .header h1 { font-size: 24pt; font-weight: 700; line-height: 1; }
+    .header p  { font-size: 10pt; color: #DAE1E7; margin-top: 3pt; }
+
+    /* ── Secciones ── */
+    .content { padding: 20pt 24pt; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8pt;
+      margin-bottom: 10pt;
+      padding-bottom: 6pt;
+      border-bottom: 2pt solid #9F3737;
+    }
+    .section-title h2 { font-size: 13pt; font-weight: 700; color: #033059; }
+    .section-title .count { font-size: 8pt; color: #888; margin-left: auto; }
+
+    /* ── Quiénes somos ── */
+    .about {
+      border: 1pt solid #DAE1E7;
+      border-radius: 6pt;
+      padding: 14pt 16pt;
+      margin-bottom: 16pt;
+    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt; margin-bottom: 12pt; }
+    .about h3 { font-size: 9pt; font-weight: 600; color: #033059; margin-bottom: 5pt; }
+    .about p  { font-size: 8.5pt; color: #444; line-height: 1.55; }
+    .services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8pt; margin-top: 10pt; }
+    .service {
+      background: #F2EAEA;
+      border-radius: 4pt;
+      padding: 8pt;
+      text-align: center;
+    }
+    .service-icon { font-size: 14pt; margin-bottom: 4pt; display: block; }
+    .service-label { font-size: 7.5pt; font-weight: 500; color: #033059; }
+
+    /* ── Índice ── */
+    .index {
+      border: 1pt solid #DAE1E7;
+      border-radius: 6pt;
+      padding: 12pt 16pt;
+      margin-bottom: 16pt;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6pt;
+    }
+    .index-item {
+      background: #F2EAEA;
+      border-radius: 4pt;
+      padding: 6pt 8pt;
+      font-size: 8pt;
+      font-weight: 500;
+      color: #033059;
+    }
+
+    /* ── Grilla de productos ── */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8pt;
+      margin-bottom: 20pt;
+    }
+
+    /* ── Card de producto (flat) ── */
+    .product-card {
+      border: 1pt solid #DAE1E7;
+      border-radius: 5pt;
+      overflow: hidden;
+      break-inside: avoid;
+    }
+    .product-img {
+      aspect-ratio: 1;
+      background: #F2EAEA;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-img .no-photo {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #DAE1E7;
+    }
+    .product-body { padding: 7pt; }
+    .product-name {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #033059;
+      line-height: 1.3;
+      margin-bottom: 4pt;
+    }
+    .product-desc {
+      font-size: 6.5pt;
+      color: #666;
+      margin-bottom: 5pt;
+      line-height: 1.4;
+    }
+    .variant {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2pt 0;
+      border-top: 0.5pt solid #F2EAEA;
+    }
+    .variant-medida { font-size: 7pt; color: #555; }
+    .variant-codigo {
+      font-size: 6.5pt;
+      font-weight: 600;
+      font-family: monospace;
+      color: #9F3737;
+      background: #F2EAEA;
+      padding: 1pt 4pt;
+      border-radius: 2pt;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: #033059;
+      color: #DAE1E7;
+      padding: 12pt 24pt;
+      display: flex;
+      align-items: center;
+      gap: 14pt;
+    }
+    .footer img { height: 22pt; width: auto; opacity: 0.9; }
+    .footer-name { font-size: 10pt; font-weight: 600; color: white; }
+    .footer-sub  { font-size: 7.5pt; opacity: 0.7; margin-top: 2pt; }
+
+    /* ── Print ── */
+    @media print {
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      @page { size: A4; margin: 0; }
+      .page-break { break-before: page; }
+      .product-card { break-inside: avoid; }
+      #print-btn { display: none !important; }
+    }
+
+    /* ── Botón solo en pantalla ── */
+    #print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #9F3737;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    #print-btn:hover { background: #AD4F4F; }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <img src="/logo-white.svg" alt="El Gasificador" />
+      <div>
+        <div class="header-label">Catálogo de productos</div>
+        <h1>El Gasificador</h1>
+        <p>Especialistas en repuestos de gas</p>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- QUIÉNES SOMOS -->
+      <div class="about">
+        <div class="section-title" style="margin-bottom:10pt; border-bottom-width:1.5pt;">
+          <h2>Quiénes somos</h2>
+        </div>
+        <div class="about-grid">
+          <div>
+            <h3>Nuestra historia</h3>
+            <p>El Gasificador nació hace más de 20 años con un objetivo claro: brindar soluciones reales al sector de instalación y mantenimiento de gas. Apostamos por la calidad y la especialización para convertirnos en el proveedor de confianza de gasistas, instaladores y técnicos de toda la región.</p>
+          </div>
+          <div>
+            <h3>Especialización en el rubro</h3>
+            <p>Nos especializamos exclusivamente en repuestos para artefactos a gas: cocinas, calefones y termotanques. Esta focalización nos permite mantener un stock profundo, conocer cada pieza en detalle y asesorar con precisión técnica.</p>
+          </div>
+        </div>
+        <h3 style="font-size:8.5pt; margin-bottom:6pt;">Nuestros servicios</h3>
+        <div class="services">
+          {[
+            { icon: '🔍', label: 'Asesoramiento técnico' },
+            { icon: '🔧', label: 'Taller de reparación' },
+            { icon: '✅', label: 'Garantía en productos' },
+            { icon: '🚚', label: 'Envíos a todo el país' },
+          ].map(s => (
+            <div class="service">
+              <span class="service-icon">{s.icon}</span>
+              <span class="service-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- ÍNDICE -->
+      <div style="margin-bottom:6pt;">
+        <div class="section-title">
+          <h2>Índice de categorías</h2>
+        </div>
+      </div>
+      <div class="index">
+        {secciones.map((s, i) => (
+          <div class="index-item">{i + 1}. {s.label}</div>
+        ))}
+      </div>
+
+      <!-- CATEGORÍAS -->
+      {secciones.map((seccion, i) => {
+        const agrupados = porCategoria(seccion.key)
+        return (
+          <div class={i > 0 ? 'page-break' : ''}>
+            <div class="section-title">
+              <h2>{seccion.label}</h2>
+              <span class="count">{agrupados.length} productos</span>
+            </div>
+            <div class="products-grid">
+              {agrupados.map(producto => {
+                const tieneFoto = producto.foto_url && !producto.foto_url.startsWith('/placeholder')
+                return (
+                  <div class="product-card">
+                    <div class="product-img">
+                      {tieneFoto ? (
+                        <img src={producto.foto_url} alt={producto.nombre} />
+                      ) : (
+                        <div class="no-photo">
+                          <svg xmlns="http://www.w3.org/2000/svg" style="width:28pt;height:28pt;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                    <div class="product-body">
+                      <div class="product-name">{producto.nombre}</div>
+                      {producto.descripcion && (
+                        <div class="product-desc">{producto.descripcion}</div>
+                      )}
+                      {producto.variantes.map(v => (
+                        <div class="variant">
+                          <span class="variant-medida">{v.medida}</span>
+                          <span class="variant-codigo">{v.codigo}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )
+      })}
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <img src="/logo-white.svg" alt="El Gasificador" />
+      <div>
+        <div class="footer-name">El Gasificador</div>
+        <div class="footer-sub">Especialistas en repuestos de gas</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Botón flotante solo en pantalla -->
+  <button id="print-btn" onclick="window.print()">
+    <svg xmlns="http://www.w3.org/2000/svg" style="width:16px;height:16px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>
+    Guardar como PDF
+  </button>
+
+</body>
+</html>
