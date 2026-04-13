@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publicar catálogo — El Gasificador</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #F2EAEA;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 3rem 2.5rem;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(3, 48, 89, 0.08);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #033059;
+      margin-bottom: 0.25rem;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 2.5rem;
+    }
+
+    .steps {
+      background: #F2EAEA;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+
+    .steps p {
+      font-size: 0.8rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .steps strong {
+      color: #033059;
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background: #9F3737;
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button:hover { background: #AD4F4F; }
+    button:disabled { background: #ccc; cursor: not-allowed; }
+
+    .status {
+      margin-top: 1.25rem;
+      font-size: 0.875rem;
+      min-height: 1.5rem;
+      font-weight: 500;
+    }
+
+    .status.ok    { color: #2e7d32; }
+    .status.error { color: #c62828; }
+    .status.loading { color: #888; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">El Gasificador</div>
+    <div class="subtitle">Panel de publicación</div>
+
+    <div class="steps">
+      <p>
+        <strong>1.</strong> Editá los productos en la planilla de Google Sheets<br>
+        <strong>2.</strong> Volvé acá y hacé clic en el botón<br>
+        <strong>3.</strong> En ~30 segundos el catálogo está actualizado
+      </p>
+    </div>
+
+    <button id="btn" onclick="publicar()">Publicar catálogo</button>
+    <div class="status" id="status"></div>
+  </div>
+
+  <script>
+    const HOOK = 'https://api.vercel.com/v1/integrations/deploy/prj_RZo590vPPDGoB3rUWSgJkVhhyKfL/AVVSxp9rJu'
+
+    async function publicar() {
+      const btn = document.getElementById('btn')
+      const status = document.getElementById('status')
+
+      btn.disabled = true
+      btn.textContent = 'Publicando...'
+      status.className = 'status loading'
+      status.textContent = 'Conectando con el servidor...'
+
+      try {
+        await fetch(HOOK, { method: 'POST' })
+        status.className = 'status ok'
+        status.textContent = '✅ ¡Listo! El catálogo se actualiza en ~30 segundos.'
+        btn.textContent = 'Publicar catálogo'
+        btn.disabled = false
+      } catch {
+        status.className = 'status error'
+        status.textContent = '❌ Error de conexión. Revisá internet e intentá de nuevo.'
+        btn.textContent = 'Publicar catálogo'
+        btn.disabled = false
+      }
+    }
+  </script>
+</body>
+</html>
