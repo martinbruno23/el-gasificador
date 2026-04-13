@@ -104,8 +104,6 @@
   </div>
 
   <script>
-    const HOOK = 'https://api.vercel.com/v1/integrations/deploy/prj_RZo590vPPDGoB3rUWSgJkVhhyKfL/AVVSxp9rJu'
-
     async function publicar() {
       const btn = document.getElementById('btn')
       const status = document.getElementById('status')
@@ -116,7 +114,7 @@
       status.textContent = 'Conectando con el servidor...'
 
       try {
-        await fetch(HOOK, { method: 'POST' })
+        await fetch('/api/publicar', { method: 'POST' })
         status.className = 'status ok'
         status.textContent = '✅ ¡Listo! El catálogo se actualiza en ~30 segundos.'
         btn.textContent = 'Publicar catálogo'
