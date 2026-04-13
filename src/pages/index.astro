@@ -1,0 +1,142 @@
+---
+import Layout from '../layouts/Layout.astro'
+import CategorySection from '../components/CategorySection.astro'
+import productosData from '../data/productos.json'
+import type { Producto } from '../lib/types'
+
+const productos = productosData as Producto[]
+
+const categorias = [
+  { id: 'cocina',      label: 'Repuestos de Cocina' },
+  { id: 'termotanque', label: 'Repuestos de Termotanque' },
+  { id: 'calenon',     label: 'Repuestos de Calefón' },
+  { id: 'termocuplas', label: 'Termocuplas' },
+]
+
+const productosPorCategoria = {
+  cocina:      productos.filter(p => p.categoria === 'Cocina'),
+  termotanque: productos.filter(p => p.categoria === 'Termotanque'),
+  calenon:     productos.filter(p => p.categoria === 'Calefón'),
+  termocuplas: productos.filter(p => p.categoria === 'Termocuplas'),
+}
+---
+
+<Layout>
+  <!-- HEADER WEB -->
+  <header class="bg-accent text-white py-10 px-6 no-print">
+    <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <div class="text-neutral-soft text-xs font-medium tracking-widest uppercase mb-2 opacity-75">
+          Catálogo de productos
+        </div>
+        <h1 class="text-4xl font-bold">El Gasificador</h1>
+        <p class="text-neutral-soft mt-1">
+          Especialistas en repuestos de gas
+        </p>
+      </div>
+      <button
+        onclick="window.print()"
+        class="flex items-center gap-2 bg-primary hover:bg-secondary text-white px-5 py-3 rounded-lg font-medium transition-colors cursor-pointer text-sm"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+        </svg>
+        Descargar PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- PORTADA SOLO EN PRINT -->
+  <div class="hidden print:block text-center py-24">
+    <h1 class="text-5xl font-bold text-accent mb-3">El Gasificador</h1>
+    <p class="text-xl text-primary">Catálogo de repuestos de gas</p>
+    <div class="mt-4 h-1 w-24 bg-primary mx-auto rounded-full"></div>
+  </div>
+
+  <main class="max-w-5xl mx-auto px-6 py-12">
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="mb-16">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="h-1 w-10 bg-primary rounded-full flex-shrink-0"></div>
+        <h2 class="text-2xl font-semibold text-accent">Quiénes somos</h2>
+        <div class="flex-1 h-px bg-neutral-soft"></div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <h3 class="font-semibold text-accent mb-2">Nuestra historia</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            El Gasificador nació hace más de 20 años con un objetivo claro: brindar
+            soluciones reales al sector de instalación y mantenimiento de gas. Desde
+            nuestros inicios, apostamos por la calidad y la especialización para
+            convertirnos en el proveedor de confianza de gasistas, instaladores y
+            técnicos de toda la región.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-semibold text-accent mb-2">Especialización en el rubro</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Nos especializamos exclusivamente en repuestos para artefactos a gas:
+            cocinas, calefones y termotanques. Esta focalización nos permite mantener
+            un stock profundo, conocer cada pieza en detalle y asesorar a nuestros
+            clientes con precisión técnica.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-accent mb-3">Nuestros servicios</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            { icon: '🔍', label: 'Asesoramiento técnico' },
+            { icon: '🔧', label: 'Taller de reparación' },
+            { icon: '✅', label: 'Garantía en todos los productos' },
+            { icon: '🚚', label: 'Envíos a todo el país' },
+          ].map(s => (
+            <div class="bg-neutral rounded-xl p-4 text-center">
+              <div class="text-2xl mb-2">{s.icon}</div>
+              <div class="text-xs font-medium text-accent">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ÍNDICE / NAVEGACIÓN POR CATEGORÍAS -->
+    <nav class="mb-12 no-print">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="h-1 w-10 bg-primary rounded-full flex-shrink-0"></div>
+        <h2 class="text-2xl font-semibold text-accent">Categorías</h2>
+        <div class="flex-1 h-px bg-neutral-soft"></div>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        {categorias.map(c => (
+          <a
+            href={`#${c.id}`}
+            class="px-4 py-2 bg-neutral text-accent text-sm font-medium rounded-full hover:bg-primary hover:text-white transition-colors"
+          >
+            {c.label}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <!-- CATEGORÍAS DE PRODUCTOS -->
+    <CategorySection id="cocina"      categoria="Repuestos de Cocina"      productos={productosPorCategoria.cocina} />
+    <CategorySection id="termotanque" categoria="Repuestos de Termotanque" productos={productosPorCategoria.termotanque} />
+    <CategorySection id="calenon"     categoria="Repuestos de Calefón"     productos={productosPorCategoria.calenon} />
+    <CategorySection id="termocuplas" categoria="Termocuplas"              productos={productosPorCategoria.termocuplas} />
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-accent text-neutral-soft py-8 px-6 mt-4 no-print">
+    <div class="max-w-5xl mx-auto text-center text-sm">
+      <p class="font-semibold text-white text-base">El Gasificador</p>
+      <p class="mt-1 opacity-75">Especialistas en repuestos de gas</p>
+    </div>
+  </footer>
+</Layout>

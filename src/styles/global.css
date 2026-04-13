@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #9F3737;
+  --color-secondary: #AD4F4F;
+  --color-accent: #033059;
+  --color-neutral: #F2EAEA;
+  --color-neutral-soft: #DAE1E7;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-accent font-sans;
+  }
+
+  h1, h2, h3 {
+    @apply font-semibold;
+  }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  .page-break { page-break-before: always; }
+  body { font-size: 11pt; }
+  @page { margin: 1.5cm; size: A4; }
+}

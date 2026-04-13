@@ -1,0 +1,29 @@
+---
+import ProductCard from './ProductCard.astro'
+import { agruparPorNombre } from '../lib/productos'
+import type { Producto } from '../lib/types'
+
+interface Props {
+  categoria: string
+  productos: Producto[]
+  id: string
+}
+
+const { categoria, productos, id } = Astro.props
+const agrupados = agruparPorNombre(productos)
+---
+
+<section id={id} class="mb-16 page-break">
+  <div class="flex items-center gap-4 mb-8">
+    <div class="h-1 w-10 bg-primary rounded-full flex-shrink-0"></div>
+    <h2 class="text-2xl font-semibold text-accent whitespace-nowrap">{categoria}</h2>
+    <div class="flex-1 h-px bg-neutral-soft"></div>
+    <span class="text-sm text-gray-400 whitespace-nowrap">{agrupados.length} productos</span>
+  </div>
+
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+    {agrupados.map((producto) => (
+      <ProductCard producto={producto} />
+    ))}
+  </div>
+</section>

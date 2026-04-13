@@ -1,0 +1,466 @@
+[
+  {
+    "categoria": "Cocina",
+    "nombre": "Asiento de válvula de gas",
+    "descripcion": "Compatible con las principales marcas de cocinas a gas.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "1/2\"",
+    "codigo": "COC-001"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Asiento de válvula de gas",
+    "descripcion": "Compatible con las principales marcas de cocinas a gas.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "3/4\"",
+    "codigo": "COC-002"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Quemador auxiliar",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "55mm",
+    "codigo": "COC-003"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Quemador auxiliar",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "65mm",
+    "codigo": "COC-004"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Quemador semi-rápido",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "75mm",
+    "codigo": "COC-005"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Tapa de quemador",
+    "descripcion": "Acero esmaltado.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "55mm",
+    "codigo": "COC-006"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Tapa de quemador",
+    "descripcion": "Acero esmaltado.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "65mm",
+    "codigo": "COC-007"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Tapa de quemador",
+    "descripcion": "Acero esmaltado.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "75mm",
+    "codigo": "COC-008"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Inyector de gas",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "0.70mm",
+    "codigo": "COC-009"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Inyector de gas",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "0.85mm",
+    "codigo": "COC-010"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Inyector de gas",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "1.00mm",
+    "codigo": "COC-011"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Válvula de paso",
+    "descripcion": "Para cocina con encendido eléctrico.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "COC-012"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Electrodo de encendido",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "COC-013"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Termocupla cocina",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "400mm",
+    "codigo": "COC-014"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Termocupla cocina",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "600mm",
+    "codigo": "COC-015"
+  },
+  {
+    "categoria": "Cocina",
+    "nombre": "Rejilla de hierro fundido",
+    "descripcion": "Fundición pesada, antideslizante.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "300x300mm",
+    "codigo": "COC-016"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Termocupla termotanque",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "400mm",
+    "codigo": "TER-001"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Termocupla termotanque",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "600mm",
+    "codigo": "TER-002"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Termocupla termotanque",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "900mm",
+    "codigo": "TER-003"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Válvula de seguridad",
+    "descripcion": "Descarga a 10 bar.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "1/2\"",
+    "codigo": "TER-004"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Válvula de seguridad",
+    "descripcion": "Descarga a 10 bar.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "3/4\"",
+    "codigo": "TER-005"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Ánodo de magnesio",
+    "descripcion": "Protección anticorrosión.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "300mm",
+    "codigo": "TER-006"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Ánodo de magnesio",
+    "descripcion": "Protección anticorrosión.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "500mm",
+    "codigo": "TER-007"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Piloto completo",
+    "descripcion": "Incluye termocupla y boquilla.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "TER-008"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Resistencia eléctrica",
+    "descripcion": "Para modelos mixtos gas/eléctrico.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "1500W",
+    "codigo": "TER-009"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Resistencia eléctrica",
+    "descripcion": "Para modelos mixtos gas/eléctrico.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "2000W",
+    "codigo": "TER-010"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Aireador de piloto",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "TER-011"
+  },
+  {
+    "categoria": "Termotanque",
+    "nombre": "Sello de tapa",
+    "descripcion": "Goma de silicona resistente a altas temperaturas.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "TER-012"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Termocupla calefón",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "400mm",
+    "codigo": "CAL-001"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Termocupla calefón",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "600mm",
+    "codigo": "CAL-002"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Electrodo de encendido calefón",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "CAL-003"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Piloto calefón",
+    "descripcion": "Incluye portapiloto y boquilla.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "CAL-004"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Membrana de agua",
+    "descripcion": "Goma de alta durabilidad.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "CAL-005"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Válvula de agua",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "1/2\"",
+    "codigo": "CAL-006"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Válvula de agua",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "3/4\"",
+    "codigo": "CAL-007"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Inyector de gas calefón",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "1.00mm",
+    "codigo": "CAL-008"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Inyector de gas calefón",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "1.15mm",
+    "codigo": "CAL-009"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Inyector de gas calefón",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "1.30mm",
+    "codigo": "CAL-010"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Intercambiador de calor",
+    "descripcion": "Cobre, compatible multimarca.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "CAL-011"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Serpentina de cobre",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "12mm",
+    "codigo": "CAL-012"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Serpentina de cobre",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "15mm",
+    "codigo": "CAL-013"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Válvula reguladora de gas",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "CAL-014"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Juntas de goma surtidas",
+    "descripcion": "Kit de 12 unidades, distintos diámetros.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Kit x12",
+    "codigo": "CAL-015"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Filtro de agua",
+    "descripcion": "Evita sedimentos en el intercambiador.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "1/2\"",
+    "codigo": "CAL-016"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Resorte de válvula",
+    "descripcion": "",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "CAL-017"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Cable de encendido",
+    "descripcion": "Alta tensión, resistente al calor.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "400mm",
+    "codigo": "CAL-018"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Cable de encendido",
+    "descripcion": "Alta tensión, resistente al calor.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "600mm",
+    "codigo": "CAL-019"
+  },
+  {
+    "categoria": "Calefón",
+    "nombre": "Módulo de encendido electrónico",
+    "descripcion": "Para calefones con encendido a pila.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "Universal",
+    "codigo": "CAL-020"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Termocupla universal tipo K",
+    "descripcion": "Rosca M9x1",
+    "foto_url": "/placeholder.jpg",
+    "medida": "300mm",
+    "codigo": "TC-001"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Termocupla universal tipo K",
+    "descripcion": "Rosca M9x1",
+    "foto_url": "/placeholder.jpg",
+    "medida": "400mm",
+    "codigo": "TC-002"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Termocupla universal tipo K",
+    "descripcion": "Rosca M9x1",
+    "foto_url": "/placeholder.jpg",
+    "medida": "600mm",
+    "codigo": "TC-003"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Termocupla universal tipo K",
+    "descripcion": "Rosca M9x1",
+    "foto_url": "/placeholder.jpg",
+    "medida": "900mm",
+    "codigo": "TC-004"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Termocupla con interruptor de seguridad",
+    "descripcion": "Para válvulas de seguridad de bloqueo total.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "400mm",
+    "codigo": "TC-005"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Termocupla con interruptor de seguridad",
+    "descripcion": "Para válvulas de seguridad de bloqueo total.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "600mm",
+    "codigo": "TC-006"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Termocupla de doble conexión",
+    "descripcion": "Para artefactos con dos salidas de piloto.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "600mm",
+    "codigo": "TC-007"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Termocupla blindada",
+    "descripcion": "Vaina de acero inoxidable, alta temperatura.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "400mm",
+    "codigo": "TC-008"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Termocupla blindada",
+    "descripcion": "Vaina de acero inoxidable, alta temperatura.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "600mm",
+    "codigo": "TC-009"
+  },
+  {
+    "categoria": "Termocuplas",
+    "nombre": "Adaptador de rosca para termocupla",
+    "descripcion": "Convierte M9x1 a M10x1.",
+    "foto_url": "/placeholder.jpg",
+    "medida": "M9→M10",
+    "codigo": "TC-010"
+  }
+]
