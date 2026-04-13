@@ -38,7 +38,15 @@ export const prerender = false
     }
 
     /* ── Layout ── */
-    .page { max-width: 210mm; margin: 0 auto; padding: 0; }
+    .page {
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 297mm;
+    }
+    .content { flex: 1; }
 
     /* ── Header ── */
     .header {
@@ -47,7 +55,7 @@ export const prerender = false
       padding: 20pt 24pt;
       display: flex;
       align-items: center;
-      gap: 16pt;
+      justify-content: space-between;
     }
     .header img { height: 36pt; width: auto; }
     .header-label {
@@ -63,6 +71,7 @@ export const prerender = false
 
     /* ── Secciones ── */
     .content { padding: 20pt 24pt; }
+    .page-break { padding-top: 20pt; }
 
     .section-title {
       display: flex;
@@ -231,12 +240,12 @@ export const prerender = false
 
     <!-- HEADER -->
     <header class="header">
-      <img src="/logo-white.svg" alt="El Gasificador" />
       <div>
         <div class="header-label">Catálogo de productos</div>
         <h1>El Gasificador</h1>
         <p>Especialistas en repuestos de gas</p>
       </div>
+      <img src="/logo-white.svg" alt="El Gasificador" />
     </header>
 
     <div class="content">
