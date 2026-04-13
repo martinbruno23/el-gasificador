@@ -1,10 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import CategorySection from '../components/CategorySection.astro'
-import productosData from '../data/productos.json'
-import type { Producto } from '../lib/types'
+import { fetchProductos } from '../lib/fetchProductos'
 
-const productos = productosData as Producto[]
+const productos = await fetchProductos()
 
 const categorias = [
   { id: 'cocina',      label: 'Repuestos de Cocina' },
