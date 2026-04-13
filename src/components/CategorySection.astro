@@ -21,7 +21,7 @@ const agrupados = agruparPorNombre(productos)
     <span class="text-sm text-gray-400 whitespace-nowrap">{agrupados.length} productos</span>
   </div>
 
-  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+  <div class="print-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
     {agrupados.map((producto) => (
       <ProductCard producto={producto} />
     ))}

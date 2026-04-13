@@ -21,21 +21,25 @@ const productosPorCategoria = {
 ---
 
 <Layout>
-  <!-- HEADER WEB -->
-  <header class="bg-accent text-white py-10 px-6 no-print">
+  <!-- HEADER (web y print) -->
+  <header class="bg-accent text-white py-10 px-6">
     <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-      <div>
-        <div class="text-neutral-soft text-xs font-medium tracking-widest uppercase mb-2 opacity-75">
-          Catálogo de productos
+      <div class="flex items-center gap-4">
+        <!-- Logo: reemplazar src con la ruta al logo cuando esté disponible -->
+        <!-- <img src="/logo.png" alt="El Gasificador" class="h-12 w-auto" /> -->
+        <div>
+          <div class="text-neutral-soft text-xs font-medium tracking-widest uppercase mb-2 opacity-75">
+            Catálogo de productos
+          </div>
+          <h1 class="text-4xl font-bold">El Gasificador</h1>
+          <p class="text-neutral-soft mt-1">
+            Especialistas en repuestos de gas
+          </p>
         </div>
-        <h1 class="text-4xl font-bold">El Gasificador</h1>
-        <p class="text-neutral-soft mt-1">
-          Especialistas en repuestos de gas
-        </p>
       </div>
       <button
         onclick="window.print()"
-        class="flex items-center gap-2 bg-primary hover:bg-secondary text-white px-5 py-3 rounded-lg font-medium transition-colors cursor-pointer text-sm"
+        class="no-print flex items-center gap-2 bg-primary hover:bg-secondary text-white px-5 py-3 rounded-lg font-medium transition-colors cursor-pointer text-sm"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -45,13 +49,6 @@ const productosPorCategoria = {
       </button>
     </div>
   </header>
-
-  <!-- PORTADA SOLO EN PRINT -->
-  <div class="hidden print:block text-center py-24">
-    <h1 class="text-5xl font-bold text-accent mb-3">El Gasificador</h1>
-    <p class="text-xl text-primary">Catálogo de repuestos de gas</p>
-    <div class="mt-4 h-1 w-24 bg-primary mx-auto rounded-full"></div>
-  </div>
 
   <main class="max-w-5xl mx-auto px-6 py-12">
 
