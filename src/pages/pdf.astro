@@ -198,7 +198,7 @@ export const prerender = false
       padding: 12pt 24pt;
       display: flex;
       align-items: center;
-      gap: 14pt;
+      justify-content: space-between;
     }
     .footer img { height: 22pt; width: auto; opacity: 0.9; }
     .footer-name { font-size: 10pt; font-weight: 600; color: white; }
@@ -207,11 +207,18 @@ export const prerender = false
     /* ── Print ── */
     @media print {
       * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-      @page { size: A4; margin: 20pt 0 0 0; }
-      @page :first { margin: 0; }
+      @page { size: A4; margin: 20pt 0 44pt 0; }
+      @page :first { margin: 0 0 44pt 0; }
       .page-break { break-before: page; }
       .product-card { break-inside: avoid; }
       #print-btn { display: none !important; }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+      }
     }
 
     /* ── Botón solo en pantalla ── */
@@ -343,11 +350,11 @@ export const prerender = false
 
     <!-- FOOTER -->
     <footer class="footer">
-      <img src="/logo-white.svg" alt="El Gasificador" />
       <div>
         <div class="footer-name">El Gasificador</div>
         <div class="footer-sub">Especialistas en repuestos de gas</div>
       </div>
+      <img src="/logo-white.svg" alt="El Gasificador" />
     </footer>
 
   </div>
