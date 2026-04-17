@@ -18,6 +18,20 @@ const productosPorCategoria = {
   calenon:     productos.filter(p => p.categoria === 'Calefón'),
   termocuplas: productos.filter(p => p.categoria === 'Termocuplas'),
 }
+
+const marcas = [
+  { src: '/marcas/Longvie.png',   alt: 'Longvie' },
+  { src: '/marcas/emege.png',     alt: 'Emegé' },
+  { src: '/marcas/Eskabe.jpg',    alt: 'Eskabe' },
+  { src: '/marcas/Escorial.png',  alt: 'Escorial' },
+  { src: '/marcas/Saiar.svg',     alt: 'Saiar' },
+  { src: '/marcas/Rheem.png',     alt: 'Rheem' },
+  { src: '/marcas/Volcan.webp',   alt: 'Volcán' },
+  { src: '/marcas/Martiri.png',   alt: 'Martiri' },
+  { src: '/marcas/Morelli.png',   alt: 'Morelli' },
+  { src: '/marcas/Orbis.png',     alt: 'Orbis' },
+  { src: '/marcas/Heineken.jpg',  alt: 'Heineken' },
+]
 ---
 
 <Layout>
@@ -97,6 +111,24 @@ const productosPorCategoria = {
       </div>
     </section>
 
+    <!-- MARCAS -->
+    <section class="mb-16 no-print">
+      <div class="flex items-center gap-4 mb-8">
+        <div class="h-1 w-10 bg-primary rounded-full flex-shrink-0"></div>
+        <h2 class="text-2xl font-semibold text-accent">Marcas con las que trabajamos</h2>
+        <div class="flex-1 h-px bg-neutral-soft"></div>
+      </div>
+      <div class="brands-carousel">
+        <div class="brands-track">
+          {[...marcas, ...marcas].map(m => (
+            <div class="brand-slot">
+              <img src={m.src} alt={m.alt} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- ÍNDICE / NAVEGACIÓN POR CATEGORÍAS -->
     <nav class="mb-12 no-print">
       <div class="flex items-center gap-4 mb-4">
@@ -123,6 +155,41 @@ const productosPorCategoria = {
     <CategorySection id="termocuplas" categoria="Termocuplas"              productos={productosPorCategoria.termocuplas} />
 
   </main>
+
+  <style>
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .brands-carousel {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+      mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    }
+    .brands-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 30s linear infinite;
+    }
+    .brands-track:hover { animation-play-state: paused; }
+    .brand-slot {
+      width: 160px;
+      height: 72px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+    }
+    .brand-slot img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(55%);
+      transition: filter 0.3s ease;
+    }
+    .brand-slot img:hover { filter: grayscale(0%) opacity(100%); }
+  </style>
 
   <!-- FOOTER -->
   <footer class="bg-accent text-neutral-soft py-8 px-6 mt-4 no-print">
