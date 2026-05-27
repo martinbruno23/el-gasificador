@@ -2,22 +2,17 @@
 import Layout from '../layouts/Layout.astro'
 import CategorySection from '../components/CategorySection.astro'
 import { fetchProductos } from '../lib/fetchProductos'
+import { slugify } from '../lib/productos'
 
 const productos = await fetchProductos()
 
-const categorias = [
-  { id: 'cocina',      label: 'Repuestos de Cocina' },
-  { id: 'termotanque', label: 'Repuestos de Termotanque' },
-  { id: 'calenon',     label: 'Repuestos de Calefón' },
-  { id: 'termocuplas', label: 'Termocuplas' },
-]
+const categoriasUnicas = [...new Set(productos.map(p => p.categoria).filter(Boolean))]
 
-const productosPorCategoria = {
-  cocina:      productos.filter(p => p.categoria === 'Cocina'),
-  termotanque: productos.filter(p => p.categoria === 'Termotanque'),
-  calenon:     productos.filter(p => p.categoria === 'Calefón'),
-  termocuplas: productos.filter(p => p.categoria === 'Termocuplas'),
-}
+const categorias = categoriasUnicas.map(cat => ({
+  id: slugify(cat),
+  label: cat,
+  productos: productos.filter(p => p.categoria === cat),
+}))
 
 const marcas = [
   { src: '/marcas/Longvie.png',   alt: 'Longvie' },
@@ -149,10 +144,9 @@ const marcas = [
     </nav>
 
     <!-- CATEGORÍAS DE PRODUCTOS -->
-    <CategorySection id="cocina"      categoria="Repuestos de Cocina"      productos={productosPorCategoria.cocina} />
-    <CategorySection id="termotanque" categoria="Repuestos de Termotanque" productos={productosPorCategoria.termotanque} />
-    <CategorySection id="calenon"     categoria="Repuestos de Calefón"     productos={productosPorCategoria.calenon} />
-    <CategorySection id="termocuplas" categoria="Termocuplas"              productos={productosPorCategoria.termocuplas} />
+    {categorias.map(c => (
+      <CategorySection id={c.id} categoria={c.label} productos={c.productos} />
+    ))}
 
   </main>
 

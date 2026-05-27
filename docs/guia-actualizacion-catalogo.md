@@ -25,7 +25,7 @@ Cada fila de la planilla es una variante de un producto. Si un producto tiene va
 
 | Columna | Qué poner | Ejemplo |
 |---|---|---|
-| `categoria` | Una de las 4 categorías | `Cocina` / `Termotanque` / `Calefón` / `Termocuplas` |
+| `categoria` | Nombre de la categoría (libre) | `Cocina` / `Estufas` / `Termotanque` |
 | `nombre` | Nombre del producto | `Quemador auxiliar` |
 | `descripcion` | Descripción corta (opcional) | `Acero esmaltado` |
 | `foto_url` | URL de la foto (ver más abajo) | `=FOTO_URL("https://drive.google.com/...")` |
@@ -79,16 +79,15 @@ Presioná **📦 Catálogo → Publicar catálogo**
 
 ---
 
-## Las 4 categorías disponibles
+## Categorías
 
-Los nombres deben escribirse exactamente así (respetando mayúsculas y tildes):
+Las categorías se crean automáticamente a partir de lo que se escribe en la columna `categoria` de la planilla. No hay una lista fija — cualquier categoría nueva que aparezca en la planilla va a verse en el catálogo.
 
-- `Cocina`
-- `Termotanque`
-- `Calefón`
-- `Termocuplas`
+**Reglas importantes:**
+- Todos los productos de una misma categoría deben tener exactamente el mismo texto (mismo uso de mayúsculas y tildes). Por ejemplo, si usás `Cocina`, no mezclar con `cocina` o `COCINA`.
+- El orden de las categorías en el catálogo sigue el orden en que aparecen en la planilla.
 
-Si se escribe diferente, el producto no va a aparecer en el catálogo.
+**Para agregar una categoría nueva** (ej. `Estufas`): simplemente escribí ese nombre en la columna `categoria` de los productos correspondientes y publicá. La nueva sección aparece sola.
 
 ---
 

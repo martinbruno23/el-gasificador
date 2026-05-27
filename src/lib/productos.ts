@@ -1,5 +1,14 @@
 import type { Producto, ProductoAgrupado } from './types'
 
+export function slugify(str: string): string {
+  return str
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+}
+
 export function agruparPorNombre(productos: Producto[]): ProductoAgrupado[] {
   const map = new Map<string, ProductoAgrupado>()
 

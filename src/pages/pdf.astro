@@ -1,19 +1,17 @@
 ---
 import { fetchProductos } from '../lib/fetchProductos'
-import { agruparPorNombre } from '../lib/productos'
+import { agruparPorNombre, slugify } from '../lib/productos'
 import type { Producto } from '../lib/types'
 
 const productos = await fetchProductos()
 
-const secciones = [
-  { id: 'cocina',      label: 'Repuestos de Cocina',      key: 'Cocina' },
-  { id: 'termotanque', label: 'Repuestos de Termotanque', key: 'Termotanque' },
-  { id: 'calenon',     label: 'Repuestos de Calefón',     key: 'Calefón' },
-  { id: 'termocuplas', label: 'Termocuplas',              key: 'Termocuplas' },
-]
+const categoriasUnicas = [...new Set(productos.map((p: Producto) => p.categoria).filter(Boolean))]
 
-const porCategoria = (key: string) =>
-  agruparPorNombre(productos.filter((p: Producto) => p.categoria === key))
+const secciones = categoriasUnicas.map(cat => ({
+  id: slugify(cat),
+  label: cat,
+  agrupados: agruparPorNombre(productos.filter((p: Producto) => p.categoria === cat)),
+}))
 
 export const prerender = false
 ---
@@ -295,16 +293,14 @@ export const prerender = false
       </div>
 
       <!-- CATEGORÍAS -->
-      {secciones.map((seccion, i) => {
-        const agrupados = porCategoria(seccion.key)
-        return (
+      {secciones.map((seccion, i) => (
           <div class={i > 0 ? 'page-break' : ''}>
             <div class="section-title">
               <h2>{seccion.label}</h2>
-              <span class="count">{agrupados.length} productos</span>
+              <span class="count">{seccion.agrupados.length} productos</span>
             </div>
             <div class="products-grid">
-              {agrupados.map(producto => {
+              {seccion.agrupados.map(producto => {
                 const tieneFoto = producto.foto_url && !producto.foto_url.startsWith('/placeholder')
                 return (
                   <div class="product-card">
@@ -336,8 +332,7 @@ export const prerender = false
               })}
             </div>
           </div>
-        )
-      })}
+      ))}
 
     </div>
 
